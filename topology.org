@@ -1,6 +1,89 @@
 #+TITLE:  Topology
 #+AUTHOR: W. Nicholas Greene
-#+OPTIONS: toc:1
+#+OPTIONS: toc:2
 #+LaTeX_CLASS_OPTIONS: [10pt]
 #+LATEX_HEADER: \usepackage[margin=1.25in]{geometry}
+#+PROPERTY: dir ./build
+#+bind: org-export-publishing-directory "./exports"
 
+* Topological Spaces
+Given a set $X$ of elements, a *topology* $\mathcal{T}$ is a collection of
+subsets of $X$ ($\mathcal{T} \subseteq 2^{X}$) such that:
+
+1. $X, \emptyset \in \mathcal{T}$
+2. $\mathcal{T}$ is stable under arbitrary unions
+3. $\mathcal{T}$ is stable under finite intersection
+
+An element $O \subseteq \mathcal{T}$ is called an *open set* and 
+an ordered pair $(X, \mathcal{T})$ is called a *topological space*.
+
+** T1 Spaces
+A topological space $(X, \mathcal T)$ is a *T1 Space* if for any distinct points
+$x, y \in X$, there exist open neighborhoods $O_x, O_y$ of $x$ and $y$,
+respectively, such that $x \notin O_y$ and $y \notin O_x$.
+
+Note that in a T1 space, the limits of convergent sequence need not be unique.
+
+** T2 Spaces
+A topological space $(X, \mathcal T)$ is a *T2* (or *Hausdorff*)
+*Space* if for any distinct points $x, y \in X$, there exist open
+neighborhoods $O_x, O_y$ of $x$ and $y$, respectively, such that
+$O_x \cap O_y = \emptyset$.
+
+Note that in a Hausdorff space, the limits of convergent sequences are unique.
+
+* Convergent Sequences
+Given a topological space $(X, \mathcal T)$, a sequence $x_n \in X$
+converges to a **limit** $l \in X$ if for any open neighborhood $O_l \in
+\mathcal T$ of $l$, there exists an $N$ such for for $n \geq N$,
+$x_n \in O_l$.
+
+* Continuous Functions
+A function $f:(X, \mathcal A) \rightarrow (Y, \mathcal B)$ between two
+topological spaces $X$ and $Y$ is *continuous* at a point $x_0 \in X$ if for
+any open neighborhood $O_Y$ of $f(x_0)$, an open neighborhood $O_X$ of $x_0$ is
+contained in the preimage of $O_Y$ - i.e. $O_X \subseteq f^{-1}(O_Y)$. $f$ is a
+*continuous function* if it is continuous at all points in $X$.  A consequence
+of the above definition is that $f$ is continuous if and only if for any open
+set $O \in \mathcal B$, its preimage is an open set (i.e. $f^{-1}(O) \in
+\mathcal A$).
+
+** Homeomorphism
+A homeomorphism is a bijective, continuous function $f$ with a continuous
+inverse $f^{-1}$.
+
+** Uniform Continuity
+A function $f$ between two metric spaces $(X, d_X)$ and $(Y, d_Y)$
+is *uniformly continuous* if for any $\epsilon > 0$, there exists a
+$\delta > 0$ such that $d_X(x, y) < \delta$ implies $d_Y(f(x), f(y)) <
+\epsilon$ for all $x, y \in X$. Note that this is a stronger form of
+continuity because the choice of $\delta$ must hold for all $x, y \in
+X$.
+
+An example of a function which is continuous but not uniformly continuous is $f
+(x) = \frac{1}{x}$ on the interval $ (0, 1) $. For any fixed $\epsilon$, the
+$\delta$ required converges to 0 as one moves towards 0.
+
+** Absolute Continuity
+A function $f$ between two metric spaces $(X \subseteq \mathbb{R}, d_X)$
+and $(Y, d_Y)$ is *absolutely continuous* on an interval $I \subseteq
+\mathbb{R}$ if for any $\epsilon > 0$ there exists a $ \delta > 0 $
+such that for any finite set of pairwise disjoint subintervals $(x_k, y_k)
+\subset I $ such that $ \sum_k d_X(x_k, y_k) \leq \delta$, then $ \sum_k
+d_Y(f(x_k), f(y_k)) \leq \epsilon$.
+
+For measures, a measure $\mu$ is absolutely continuous with respect to a
+measure $\lambda$ if for any $\epsilon > 0$ there exists a $\delta >
+0$ such that $\mu(A) \leq \delta$ implies $\lambda(A) \leq \epsilon
+$. This implies that $\\lambda(A) = 0$ implies $\mu(A) = 0$.
+
+** Holder Continuity
+A function $f$ between two metric spaces $(X, d_X)$ and $(Y, d_Y)$
+is *Holder continuous* if there exists real numbers $ L \geq 0 $ and $
+\alpha > 0$ such that $d_Y(f(x), f(y)) \leq L d_X(x, y)^{\alpha}$ for all
+$x, y \in X$.
+
+** Lipschitz Continuity
+A function $f$ between two metric spaces $(X, d_X)$ and $(Y, d_Y)$
+is *Lipschitz continuous* if there exists a real number $ L \geq 0 $ such
+that $d_Y(f(x), f(y)) \leq L d_X(x, y)$ for all $x, y \in X$.
