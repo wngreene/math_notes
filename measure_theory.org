@@ -1,0 +1,65 @@
+#+TITLE:  Measure Theory
+#+AUTHOR: W. Nicholas Greene
+#+OPTIONS: toc:2
+#+LaTeX_CLASS_OPTIONS: [10pt]
+#+LATEX_HEADER: \usepackage[margin=1.25in]{geometry}
+
+* Algebra of Sets
+Given a set of $X$ of elements, an *algebra* $\Sigma$ is a non-empty
+collection of subsets of $X$ such that:
+1. $A \in \Sigma \rightarrow A^c \in \Sigma$
+2. $A, B \in \Sigma \rightarrow A \cup B \in \Sigma$
+
+Note that this means that $\Sigma$ is an algebra if it is stable under a
+*finite* number of set operations.
+
+** $\sigma$-algebra
+Given a set $X$ of elements, a *$\sigma$-algebra* $\Sigma$ is a
+collection of subsets of $X$ ($\Sigma \subseteq 2^X$) such that:
+
+1. $\Sigma$ is non-empty
+2. $\Sigma$ is stable under complementation
+3. $\Sigma$ is stable under *countable* unions
+An element $E \in \Sigma$ is called a *measurable set*.
+
+Note that as consequences of the above definition, both $X$ and
+$\emptyset$ are in $\Sigma$. In addition, $\Sigma$ is stable under
+countable intersections.
+
+** Borel $\sigma$-algebra
+Given a topological space $(X, \mathcal T)$, a *Borel set* is any set that
+can be constructed from the open sets by countable unions, countable
+intersections, and complementation. The set of all such sets is called a *Borel
+$\sigma$-algebra*. It is the smallest $\sigma$-algebra that contains
+all of the open sets of $(X, \mathcal T)$.
+
+* Measrurable Function
+A function $f: (X, \mathcal A) \rightarrow (Y, \mathcal B)$ between
+measurable spaces $X$ and $Y$ is a *measurable function* if and only
+if for any measurable set $E \in \mathcal B$, its preimage $f^{-1}(E)$
+is a measurable set (i.e. $f^{-1}(E) \in \mathcal A$).
+
+* Measurable Space
+An ordered pair $(X, \Sigma)$, where $X$ is a set of elements an $\Sigma$ is
+a $\sigma$-algebra over those elements, is called a *measurable space*.
+
+* Measure 
+Given a measurable space $(X, \Sigma)$, a function $\mu: \Sigma \rightarrow
+\mathbb R$ is a *measure* if:
+
+1. $\mu(E) \geq 0$ for all $E \in \Sigma$
+2. $\mu(\emptyset) = 0$
+3. $\mu(\cup_i E_i) = \Sigma_i \mu(E_i)$ for any collection of pairwise disjoint measurable sets $E_i \in \Sigma$.
+
+An ordered tuple $(X, \Sigma, \mu)$ is called a *measure space*.
+
+** Lebesgue Measure
+The *Lebesgue Measure* is a standard measure for Euclidean space.
+
+** Counting Measure
+The *Counting Measure* is defined as $\mu(E) = |E|$.
+
+* Lebesgue Integral
+Given a measure space $(X, \Sigma, \mu)$ and a function $f: X \rightarrow
+\mathbb{R}^+$, the *Lebesgue* integral is defined as $\int f d\mu =
+\int_0^{\infty} f^*(t) dt$, where $f^*(t) = \mu(\{x:f(x) > t\})$
