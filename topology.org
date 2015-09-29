@@ -1,0 +1,6 @@
+#+TITLE:  Topology
+#+AUTHOR: W. Nicholas Greene
+#+OPTIONS: toc:1
+#+LaTeX_CLASS_OPTIONS: [10pt]
+#+LATEX_HEADER: \usepackage[margin=1.25in]{geometry}
+
