@@ -7,7 +7,7 @@
 * Algebra of Sets
 Given a set of $X$ of elements, an *algebra* $\Sigma$ is a non-empty
 collection of subsets of $X$ such that:
-1. \(A \in \Sigma \rightarrow A^c \in \Sigma\)
+1. $A \in \Sigma \rightarrow A^c \in \Sigma$
 2. $A, B \in \Sigma \rightarrow A \cup B \in \Sigma$
 
 Note that this means that $\Sigma$ is an algebra if it is stable under a
