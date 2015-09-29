@@ -1,4 +1,4 @@
-#+TITLE:  Probability Theory
+#+TITLE: Probability Theory
 #+AUTHOR: W. Nicholas Greene
 #+OPTIONS: toc:2
 #+LaTeX_CLASS_OPTIONS: [10pt]
