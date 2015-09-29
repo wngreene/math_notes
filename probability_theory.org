@@ -1,0 +1,55 @@
+#+TITLE:  Probability Theory
+#+AUTHOR: W. Nicholas Greene
+#+OPTIONS: toc:2
+#+LaTeX_CLASS_OPTIONS: [10pt]
+#+LATEX_HEADER: \usepackage[margin=1.25in]{geometry}
+
+* Probability Space
+A probability space is a measure space $(\Omega, \mathcal F, P)$ where
+$P(\Omega) = 1$. $\Omega$ is dubbed the *sample space* and contains the set of
+possible outcomes of a random experiment. The $\sigma$-algebra $\mathcal F$ is
+dubbed the *event space* and contains measurable subsets of $\Omega$ called
+*events*.
+
+* Random Variable
+A *random variable* $X: \Omega \rightarrow E$ is a measurable function
+between a probability space $(\Omega, \mathcal F, P)$ and a measurable space
+$(E, \mathcal E)$. We say that $X$ is an $E$-valued random variable.
+
+* Probability Distribution
+If $X$ is a real-valued random variable, we may assign probabilities
+directly to the real line $\mathbb R$ and "forget" about the underlying
+probability space $(\Omega, \mathcal F, P)$ forming a *probaility
+distribution*. The *cumulative distribution function* (*CDF*) encodes these
+probabilities as $F_X(x) = P(X \leq x)$ for all $x \in \mathbb R$. If
+$X$ is a continuous random variable, we may then form its *probability
+density function* (*PDF*) $p_X(x)$ as $P(a \leq X \leq b) = \int_a^b
+p_X(x) dx$, while if $X$ is discrete we may form its *probability mass
+function* (*PMF*) $p_X(x) = P(X = x)$.
+
+* Functions of Random Variables
+A function $g: \mathbb R \rightarrow \mathbb R$ may be applied to a random
+variable $X$ to generate another random variable $Y = g(X)$. If $X$
+is continuous and $g$ is invertible, we may construct $Y$'s PDF as
+$p_Y(y) = p_X(g^{-1}(y)) \left| \frac{d g^{-1}(y)}{dy} \right|$, where the scale factor
+ensures $\int_{-\infty}^{+\infty} p_Y(y) dy = 1$.
+
+* Convergence of Random Variables
+
+** Convergence in Distribution
+A sequence of random variables $X_n$ with CDFs $F_n$ *converges in
+distribution* to a random variable $X$ with CDF $F$ if $\lim_{n
+\rightarrow \infty} F_n(x) = F(x)$ for all $x \in \mathbb R$ at which
+$F$ is continuous.
+
+** Convergence in Probability
+A sequence of random variables $X_n$ *converges in probability* to a
+random variable (or constant) $X$ if $\lim_{n \rightarrow \infty} P(|X_n -
+X| \geq \epsilon) = 0$ for any $\epsilon > 0$. This is an extension of the
+*weak law of large numbers*.
+
+** Almost Sure Convergence
+A sequence of random variables $X_n$ converges *almost surely* (or
+*strongly*, or *almost everywhere*) to a random variable $X$ if
+$P(\lim_{n \rightarrow \infty} X_n = X) = 1$. This is an extension of the
+*strong law of large numbers*.
