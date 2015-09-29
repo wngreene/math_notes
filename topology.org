@@ -3,8 +3,6 @@
 #+OPTIONS: toc:2
 #+LaTeX_CLASS_OPTIONS: [10pt]
 #+LATEX_HEADER: \usepackage[margin=1.25in]{geometry}
-#+PROPERTY: dir ./build
-#+bind: org-export-publishing-directory "./exports"
 
 * Topological Spaces
 Given a set $X$ of elements, a *topology* $\mathcal{T}$ is a collection of
@@ -61,29 +59,27 @@ continuity because the choice of $\delta$ must hold for all $x, y \in
 X$.
 
 An example of a function which is continuous but not uniformly continuous is $f
-(x) = \frac{1}{x}$ on the interval $ (0, 1) $. For any fixed $\epsilon$, the
+(x) = \frac{1}{x}$ on the interval $(0, 1)$. For any fixed $\epsilon$, the
 $\delta$ required converges to 0 as one moves towards 0.
 
 ** Absolute Continuity
-A function $f$ between two metric spaces $(X \subseteq \mathbb{R}, d_X)$
-and $(Y, d_Y)$ is *absolutely continuous* on an interval $I \subseteq
-\mathbb{R}$ if for any $\epsilon > 0$ there exists a $ \delta > 0 $
-such that for any finite set of pairwise disjoint subintervals $(x_k, y_k)
-\subset I $ such that $ \sum_k d_X(x_k, y_k) \leq \delta$, then $ \sum_k
-d_Y(f(x_k), f(y_k)) \leq \epsilon$.
+A function $f$ between two metric spaces $(X \subseteq \mathbb{R}, d_X)$ and
+$(Y, d_Y)$ is *absolutely continuous* on an interval $I \subseteq \mathbb{R}$ if
+for any $\epsilon > 0$ there exists a $\delta > 0$ such that for any finite set
+of pairwise disjoint subintervals $(x_k, y_k) \subset I$ such that $\sum_k
+d_X(x_k, y_k) \leq \delta$, then $\sum_k d_Y(f(x_k), f(y_k)) \leq \epsilon$.
 
-For measures, a measure $\mu$ is absolutely continuous with respect to a
-measure $\lambda$ if for any $\epsilon > 0$ there exists a $\delta >
-0$ such that $\mu(A) \leq \delta$ implies $\lambda(A) \leq \epsilon
-$. This implies that $\\lambda(A) = 0$ implies $\mu(A) = 0$.
+For measures, a measure $\mu$ is absolutely continuous with respect to a measure
+$\lambda$ if for any $\epsilon > 0$ there exists a $\delta > 0$ such that if
+$\mu(A) \leq \delta$ implies $\lambda(A) \leq \epsilon$. This implies that
+$\lambda(A) = 0$ implies $\mu(A) = 0$.
 
 ** Holder Continuity
-A function $f$ between two metric spaces $(X, d_X)$ and $(Y, d_Y)$
-is *Holder continuous* if there exists real numbers $ L \geq 0 $ and $
-\alpha > 0$ such that $d_Y(f(x), f(y)) \leq L d_X(x, y)^{\alpha}$ for all
-$x, y \in X$.
+A function $f$ between two metric spaces $(X, d_X)$ and $(Y, d_Y)$ is *Holder
+continuous* if there exists real numbers $L \geq 0$ and $\alpha > 0$ such that
+$d_Y(f(x), f(y)) \leq L d_X(x, y)^{\alpha}$ for all $x, y \in X$.
 
 ** Lipschitz Continuity
-A function $f$ between two metric spaces $(X, d_X)$ and $(Y, d_Y)$
-is *Lipschitz continuous* if there exists a real number $ L \geq 0 $ such
-that $d_Y(f(x), f(y)) \leq L d_X(x, y)$ for all $x, y \in X$.
+A function $f$ between two metric spaces $(X, d_X)$ and $(Y, d_Y)$ is *Lipschitz
+continuous* if there exists a real number $L \geq 0$ such that $d_Y(f(x), f(y))
+\leq L d_X(x, y)$ for all $x, y \in X$.
