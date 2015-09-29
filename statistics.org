@@ -1,0 +1,85 @@
+#+TITLE: Statistics
+#+AUTHOR: W. Nicholas Greene
+#+OPTIONS: toc:2
+#+LaTeX_CLASS_OPTIONS: [10pt]
+#+LATEX_HEADER: \usepackage[margin=1.25in]{geometry}
+
+* Statistical Model
+Given a probability space $(\Omega, \mathcal{E}, \mu)$, a *statistical model*
+is comprised of four components:
+
+1. Observable data $X = (X_1, \ldots, X_n)$
+2. An unknown parameter $\theta$
+3. A distribution $P_{\theta}$ with respect to $\mu$ such that $X \sim P_{\theta}$
+4. A parameter space $\Theta$ such that $\mathcal{P} = \{P_{\theta} : \theta \in \Theta\}$
+
+When the parameter space $\Theta$ is /finite/, we say that the model is *parametric*,
+otherwise it is *non-parametric*.
+
+* Statistics
+Given a statistical model, a *statistic* $\delta(X)$ is a function of the
+observed data $X$ that does not depend on the parameter $\theta$.
+
+** Sufficient Statistics
+A *sufficient* statistic $T(X)$ for parameter $\theta$ removes the dependency on
+$\theta$ from the observed data. In other words, if $T(X)$ is sufficient, then
+\begin{align*}
+P(X = x | \theta, T(x) = t) &= P(X = x | T(x) = t)
+\end{align*}
+for all $t$ and $\theta$.
+
+** Fisher-Neyman Factorization Theorem
+If the distribution $P_{\theta}$ admits a density $p_{\theta}$, then $T(X)$ is
+sufficient for $\theta$ if and only if
+\begin{align*}
+p_{\theta}(x) = h(x) g_{\theta}(x).
+\end{align*}
+
+*** Minimal Statistics
+A sufficient statistic $T(X)$ is *minimal sufficient* if for every sufficient
+statistic $\tilde{T}(X)$, there exists a function $f$ such that $T =
+f(\tilde{T})$ almost everywhere with respect to $\mu$.
+
+Note that if $T(X)$ is complete and sufficient, then it is minimal sufficient.
+
+** Complete Statistics
+A statistic $T(X)$ is *complete* for a family of distributions $\mathcal{P}$ if 
+\begin{align*}
+\mathbb{E}_{\theta} [f(T(X))] \textrm{ is constant} \implies f(T(X)) \textrm{ is constant}.
+\end{align*}
+
+*** Lehmann-Scheffe Theorem
+Given statistic $T(X)$ and estimator $\delta(X)$ of $\theta$, if $T(X)$ is a
+complete sufficient statistic for $\theta$ and $\delta(X)$ is unbiased, then
+$\delta(X)$ is the uniformly minimum variance unbiased estimator (UMVU) of
+$\theta$.
+
+** Ancillliary Statistics
+An *ancillary* statistic is a statistic whose sampling distribution does not
+depend on $\theta$.
+
+* Estimators
+An *estimator* $\delta(X)$ is a statistic that estimates the unknown parameter
+$\theta$.
+
+** Unbiased Estimators
+An estimator $\delta(X)$ is *unbiased* if $\mathbb{E}[\delta(X)] = \theta$.
+
+** Consistent Estimators
+An estimator $\delta_n(X)$ is *consistent* if it converges in probability to
+$\theta$. That is, for any $\epsilon > 0$,
+\begin{align*}
+\lim_{n \rightarrow \infty} P(|\delta_n(X) - \theta| \geq \epsilon) &= 0.
+\end{align*}
+
+** Rao-Blackwell Theorem
+Given sufficient statistic $T(X)$ and estimator $\delta(X)$ for $\theta$, the
+estimator formed by conditioning on $T$ has lower expected risk than the
+original estimator. That is, if $\tilde{\delta}(X) = \mathbb{E}[\delta(X) |
+T(X)]$, then
+\begin{align*}
+\mathbb{E}[L(\tilde{\delta}(X))] \leq \mathbb{E}[L(\delta(X))],
+\end{align*}
+for any loss function $L(\theta, \delta)$ that is convex in $\delta$.
+
+This is a direct application of Jensen's Inequality.
