@@ -48,12 +48,6 @@ A statistic $T(X)$ is *complete* for a family of distributions $\mathcal{P}$ if
 \mathbb{E}_{\theta} [f(T(X))] \textrm{ is constant} \implies f(T(X)) \textrm{ is constant}.
 \end{align*}
 
-*** Lehmann-Scheffe Theorem
-Given statistic $T(X)$ and estimator $\delta(X)$ of $\theta$, if $T(X)$ is a
-complete sufficient statistic for $\theta$ and $\delta(X)$ is unbiased, then
-$\delta(X)$ is the uniformly minimum variance unbiased estimator (UMVU) of
-$\theta$.
-
 ** Ancillliary Statistics
 An *ancillary* statistic is a statistic whose sampling distribution does not
 depend on $\theta$.
@@ -83,3 +77,14 @@ T(X)]$, then
 for any loss function $L(\theta, \delta)$ that is convex in $\delta$.
 
 This is a direct application of Jensen's Inequality.
+
+** Lehmann-Scheffe Theorem
+Given statistic $T(X)$ and estimator $\delta(T(X))$ of $\theta$, if $T(X)$ is a
+complete sufficient statistic for $\theta$ and $\delta(T(X))$ is unbiased, then
+$\delta(T(X))$ is the uniformly minimum variance unbiased estimator (UMVU) of
+$\theta$.
+
+Note that this theorem, combined with the Rao-Blackwell theorem, allows us to
+turn any unbiased estimator $\eta(X)$ into the UMVU estimator when given a
+complete sufficient statistic. Set $\delta(T(X)) = \mathbb{E}[\eta(X) | T(X)]$
+and the result follows.
